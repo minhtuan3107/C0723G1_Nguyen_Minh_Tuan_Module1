@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Chiều dài cạnh a ");
+    let b = +prompt("Cạnh dài cạnh b ");
+    let c = +prompt("Cạnh dài cạnh c");
+    if (a + b < c || a + c < b || b + c < a) {
+        alert("Không phải là tam giác");
+    } else if (a === b && b === c) {
+        alert("Là tam giác vuông cân");
+    } else if (a === b !== c || a === c !== b && b === c !== a) {
+        alert("Là tam giác vuông cân");
+    } else {
+        alert("Không phải tam giác vuông cân");
+    }
+</script>
+</body>
+</html>
