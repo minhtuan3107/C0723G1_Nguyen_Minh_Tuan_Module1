@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let wage = + prompt("Nhập lương");
+    let time = +prompt("Nhập giờ");
+    let result;
+    let total;
+    if(isNaN(wage)&& isNaN(time)){
+        alert("Số bạn nhập không phải số vui lòng nhập lại");
+    }
+    else if(time >= 100 && time < 200){
+        result = wage * 10 / 100;
+        total = wage + result;
+        alert("Mức lương của bạn là : " + wage + " Và tiền thưởng của bạn là : " +  result + " Tổng: " + total);
+    }else{
+        alert("Mức lương của bạn là :" + wage + " Và bạn không được thưởng");
+    }
+</script>
+</body>
+</html>

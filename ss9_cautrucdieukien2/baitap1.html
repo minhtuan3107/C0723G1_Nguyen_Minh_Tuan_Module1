@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th><label for="amount">Money</label></th>
+        <td>
+
+        </td>
+        <th>From Currency</th>
+        <td>
+
+        </td>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="text" id="amount"></td>
+        <td>
+
+        </td>
+        <td>
+            <label for="from"></label><select id="from">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+                <option value="RMB">RMB</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            </select>
+        </td>
+        <td>
+
+        </td>
+        <td>
+            <label for="to"></label><select id="to">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+                <option value="RMB">RMB</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            </select>
+        </td>
+        <td>
+
+        </td>
+        <td style="background-color:blue">
+            <button onclick="Convert()">Convert</button>
+        </td>
+    </tr>
+</table>
+
+<br>
+<p id="result"></p>
+</body>
+<script>
+    function Convert() {
+        let amount = document.getElementById("amount").value;
+        let form1 = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        let result;
+        if (form1 === "VND" && to === "VND") {
+            result = "Số tiền là :  " + amount + " Đ";
+        } else if (form1 === "VND" && to === "USD") {
+            result = "Số tiền là :  " + (amount / 23000) + "USD";
+        } else if (form1 === "VND" && to === "RMB") {
+            result = "Số tiền là :  " + (amount / 3300) + "RMB";
+        } else if (form1 === "VND" && to === "GBP") {
+            result = "Số tiền là :  " + (amount / 30193) + "GBP";
+        }else if (form1 === "VND" && to === "JPY") {
+            result = "Số tiền là :  " + (amount / 0.0060) + "JPY";
+        } else if (form1 === "USD" && to === "USD") {
+            result = "Số tiền là :  " + amount + "USD";
+        } else if (form1 === "USD" && to === "VND") {
+            result = "Số tiền là :  " + (amount * 23000) + "VND";
+        } else if (form1 === "USD" && to === "RMB") {
+            result = "Số tiền là :  " + (amount * 719) + "RMB";
+        } else if (form1 === "USD" && to === "GBP") {
+            result = "Số tiền là :  " + (amount * 0.79) + "GBP";
+        }else if (form1 === "USD" && to === "JPY") {
+            result = "Số tiền là :  " + (amount * 143.11) + "JPY";
+        } else if (form1 === "RMB" && to === "RMB") {
+            result = "Số tiền là :  " + amount + "RMB";
+        } else if (form1 === "RMB" && to === "VND") {
+            result = "Số tiền là :  " + (amount * 3300) + "VND";
+        } else if (form1 === "RMB" && to === "USD") {
+            result = "Số tiền là :  " + (amount * 0.14) + "USD";
+        } else if (form1 === "RMB" && to === "GBP") {
+            result = "Số tiền là :  " + (amount * 0.86) + "GBP";
+        }else if (form1 === "RMB" && to === "JPY") {
+            result = "Số tiền là :  " + (amount * 19.90) + "JPY";
+        } else if (form1 === "GBP" && to === "GBP") {
+            result = "Số tiền là :  " + amount + "GBP";
+        } else if (form1 === "GBP" && to === "VND") {
+            result = "Số tiền là :  " + (amount * 30200) + "VND";
+        } else if (form1 === "GBP" && to === "USD") {
+            result = "Số tiền là :  " + (amount * 1.27) + "USD";
+        } else if (form1 === "GBP" && to === "RMB") {
+            result = "Số tiền là :  " + (amount * 9.15) + "RMB";
+        }else if (form1 === "GBP" && to === "JPY") {
+            result = "Số tiền là :  " + (amount * 182) + "JPY";
+        }else if (form1 === "JPY" && to === "JPY") {
+            result = "Số tiền là :  " + amount + "JPY";
+        }else if (form1 === "JPY" && to === "VND") {
+            result = "Số tiền là :  " + (amount * 165.84) + "VND";
+        }else if (form1 === "JPY" && to === "USD") {
+            result = "Số tiền là :  " + (amount * 0.0070) + "USD";
+        }else if (form1 === "JPY" && to === "RMB") {
+            result = "Số tiền là :  " + (amount * 0.050 ) + "RMB";
+        }else if (form1 === "JPY" && to === "GBP") {
+            result = "Số tiền là :  " + (amount * 0.0055) + "GBP";
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</html>

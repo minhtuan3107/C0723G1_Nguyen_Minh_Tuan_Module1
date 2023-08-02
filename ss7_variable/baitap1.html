@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body >
+<h1>TIP CALCULATOR</h1>
+<hr>
+<p>How much was your bill ?</p>
+<p>$<input type="number" id="amount"></p>
+<p>How was your service?</p>
+<label for="from"></label><select id="from">
+    <option value="1">Outstanding: 30%</option>
+    <option value="2">Good: 20%</option>
+    <option value="3">It was OK: 15%</option>
+    <option value="4">BAD: 10%</option>
+    <option value="5">Terrible: 5%</option>
+</select>
+<p>How many people are sharing the bill ?</p>
+<p><input type="number" id="people">people</p>
+<button onclick="Calculate()" style="width: 200px; height: 50px; background-color: red; color: white">CALCULATE!</button>
+<p>TIP AMOUNT</p>
+<p id="result">$</p>
+<p>each</p>
+</body>
+<script>
+    function Calculate() {
+        let amount = document.getElementById("amount").value;
+        let form1 = document.getElementById("from").value;
+        let people1 = document.getElementById("people").value;
+        let result;
+        if (form1 === "1") {
+            result = amount * 30 / 100 / people1 + "$"
+        } else if (form1 === "2") {
+            result = amount * 20 / 100 / people1 + "$"
+        } else if (form1 === "3") {
+            result = amount * 15 / 100 / people1 + "$"
+        } else if (form1 === "4") {
+            result = amount * 10 / 100 / people1 + "$"
+        } else if (form1 === "5") {
+            result = amount * 5 / 100 / people1 + "$"
+        }
+        document.getElementById("result").innerHTML = result;
+
+    }
+</script>
+</html>
