@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = +prompt("Nhập số lượng phần tử");
+    let arr = [];
+    let even = 0;
+    let odd = 0;
+    for (let i = 0; i < str; i++) {
+        arr[i] = +prompt("Nhập phần tử thứ " + [i]);
+    }
+    let str1 = +prompt("Nhập số lượng phần tử muốn thêm");
+    let arr1 = [];
+    for (let i = 0; i < str1; i++) {
+        arr1[i] = +prompt("Nhập phần tử muốn thêm thứ" + [i])
+    }
+    let arr3 = arr.concat(arr1);
+    for (let i = 0; i < arr3.length; i++) {
+        if (arr3[i] % 2 === 0) {
+            even++;
+        } else {
+            odd++;
+        }
+    }
+    if (even === odd) {
+        alert("Mảng đầu tiên là " + arr + "Mảng thứ hai là " + arr1 + "Mảng sau khi thêm là: " + arr3 + "OK");
+    } else {
+        alert("Mảng đầu tiên là " + arr + "Mảng thứ hai là " + arr1 + " Mảng sau khi thêm là: " + arr3 + "NO");
+    }
+</script>
+</body>
+</html>

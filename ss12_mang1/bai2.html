@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = +prompt("Nhập số lượng phần tử");
+    let arr = [];
+    let squareNumber = [];
+    for (let i = 0; i < str; i++) {
+        arr[i] = +prompt("Nhập phần tử thứ " + [i]);
+    }
+    let str1 = +prompt("Nhập số lượng phần tử muốn thêm");
+    let arr1 = [];
+    for (let i = 0; i < str1; i++) {
+        arr1[i] = +prompt("Nhập phần tử muốn thêm thứ" + [i]);
+    }
+    let arr3 = arr.concat(arr1);
+    for (let i = 0; i < arr3.length; i++) {
+        if ((Math.sqrt(arr3[i]) % 1 === 0)) {
+            squareNumber.push(arr3[i]);
+        }
+    }
+    document.write("<br> Mảng đầu tiên là " + arr);
+    document.write("<br> Mảng thứ hai là " + arr1);
+    document.write("<br> Mảng sau khi thêm là: " + arr3);
+    document.write("<br> Số chính phương trong mảng là: " + squareNumber);
+</script>
+</body>
+</html>

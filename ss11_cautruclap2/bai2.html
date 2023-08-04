@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let dad = +prompt("Nhập tuổi cha");
+  let son = +prompt("Nhập tuổi con");
+  let year = 0;
+  if(dad - son < 25){
+    alert("Tuổi cha phải hơn con 25");
+  }while (dad > son * 2  ){
+    dad ++;
+    son ++;
+    year ++;
+  }alert("Sau " + year + " năm Tuổi cha gấp đôi tuổi con");
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m = +prompt('Nhập số hàng của mảng');
+    let n = +prompt('Nhập số cột của mảng');
+    let diagonal = 0;
+    let diagonal1 = 0;
+    let sum;
+    let array = [];
+    for (let i = 0; i < n; i++) {
+        array.push([]);
+        for (let j = 0; j < m; j++) {
+            array[i].push(Number(prompt("Nhập phần tử thứ " + (i + 1) + ", " + (j + 1) + " : ")));
+        }
+    }
+    for (let i = 0; i < array.length; i++) {
+        diagonal += array[i][i];
+        diagonal1 += array[i][array.length - i - 1];
+    }
+    sum = diagonal + diagonal1;
+    document.write("Mảng sau khi thêm mới các phần tử " + array);
+    document.write("Tổng đường chéo 1 của mảng " + diagonal);
+    document.write("Tổng đường chéo 2 của mảng " + diagonal1);
+    document.write("Tổng 2 đường chéo của mảng " + sum);
+</script>
+</body>
+</html>

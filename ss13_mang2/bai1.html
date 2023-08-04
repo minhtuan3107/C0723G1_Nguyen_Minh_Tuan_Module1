@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = +prompt("Nhập số lượng phần tử");
+    let arr = [];
+    let sum = 0;
+    let even = 0;
+    let odd = 0;
+    let arr3;
+    for (let i = 0; i < str; i++) {
+        arr[i] = +prompt("Nhập phần tử thứ " + [i]);
+    }
+    let str1 = +prompt("Nhập số lượng phần tử muốn thêm");
+    let arr1 = [];
+    for (let i = 0; i < str1; i++) {
+        arr1[i] = +prompt("Nhập phần tử muốn thêm thứ" + [i]);
+    }
+    arr3 = arr.concat(arr1);
+
+    for (let i = 0; i < arr3.length; i++) {
+        sum += arr3[i];
+    }
+    for (let i = 0; i < arr3.length; i++) {
+        if (arr3[i] % 2 === 0) {
+            even += arr3[i];
+        } else {
+            odd += arr3[i];
+        }
+    }
+    document.write("Phần tử ban đầu là " + arr)
+    document.write("<br> Phần tử muốn thêm là " + arr1)
+    document.write("<br> Mảng sau khi thêm mới các phần tử là: " + arr3);
+    document.write(" <br> Tổng các phần tử là " + sum);
+    document.write("<br> Tổng các phần tử chẵn " + even);
+    document.write("<br> Tổng các phần tử lẻ " + odd);
+</script>
+</body>
+</html>

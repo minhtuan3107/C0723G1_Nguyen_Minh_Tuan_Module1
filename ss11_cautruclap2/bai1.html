@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Nhập số phần tử trong mảng");
+    let arr = [];
+    let max = [0];
+    for (let i = 0; i < str; i++) {
+        arr[i] = +prompt("Nhập mảng thứ " + [i]);
+    }    document.write("Mảng bạn nhập là: " + arr);
+    arr.sort();
+    for (let i = 1; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i - 1];
+        }
+    }
+    document.write(" <br> Mảng lớn thứ 2 là " + max);
+</script>
+</body>
+</html>
