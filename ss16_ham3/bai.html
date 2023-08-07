@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<h1>ABC BANK</h1>
+<hr>
+<div id="table"></div>
+<br>
+<p>Chọn loại dịch vụ : </p>
+<button onclick="addMoney()" style="height: 50px; width: 100px;">Nạp tiền</button>
+<button onclick="withdrawMoney()" style="height: 50px; width: 100px;">Rút tiền</button>
+
+
+<script>
+    class Account {
+        constructor(number, name, money) {
+            this.number = number;
+            this.name = name;
+            this.money = money;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getNumber() {
+            return this.number;
+        }
+
+        getMoney() {
+            return this.money;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setNumber(number) {
+            this.number = number;
+        }
+
+        setMoney(money) {
+            this.money = money;
+        }
+
+        toString() {
+            return "Account: " + this.number + "Name account: " + this.name + "Số dư " + this.money;
+        }
+
+        deposit(money) {
+            this.money += money;
+        }
+
+        withdraw(money) {
+            if (this.money >= money) {
+                this.money -= money;
+            } else {
+                alert("Số dư không đủ");
+            }
+        }
+    }
+
+    let account1 = new Account('31', 'NGUYEN MINH TUAN', 10000);
+    let account2 = new Account('07', 'Nguyen Minh Tuan', 20000);
+    let account3 = new Account('05', 'Nguyen Minh A ', 9999);
+    let accountList = [];
+    accountList.push(account1, account2, account3);
+    displayAccountList(accountList);
+
+    function displayAccountList(accountList) {
+        let table = "<table  border='1px'  style='border-collapse: collapse'>" +
+            "<tr>" +
+            "<th>STT</th>" +
+            "<th>STK</th>" +
+            "<th>Name</th>" +
+            "<th>Money</th>" +
+            "</tr>"
+        for (let i = 0; i < accountList.length; i++) {
+            table += "<tr>" +
+                "<td>" + (i + 1) + "</td>" +
+                "<td>" + accountList[i].number + "</td>" +
+                "<td>" + accountList[i].name + "</td>" +
+                "<td>" + accountList[i].money + "</td>" +
+                "</tr>";
+        }
+        table += "</table>";
+        document.getElementById("table").innerHTML = table;
+    }
+
+    function addMoney() {
+        debugger
+        let id = prompt("STK cần nạp tiền");
+        let money = +prompt("Nhập số tiền cần nạp");
+        for (let i = 0; i < accountList.length; i++) {
+            if (id === accountList[i].number) {
+                accountList[i].money += money;
+                alert("Nạp tiền thành công");
+                break;
+            } else {
+                alert("STK không hợp lệ ");
+                break;
+            }
+        }
+        displayAccountList(accountList);
+    }
+
+    function withdrawMoney() {
+        debugger
+        let id = prompt("Nhập STK cần rút tiền");
+        let money;
+        let flag = false;
+        for (let i = 0; i < accountList.length; i++) {
+            if (id === accountList[i].number) {
+                money = +prompt('Nhập số tiền cần rút');
+                alert('Số dư trong tài khoản ' + id + " là: " + accountList[i].money);
+                if (accountList[i].money > 0 && accountList[i].money >= money) {
+                    confirm('Bạn có muốn rút ' + money + ' VND trong tài khoản ' + accountList[i].number + ' không??')
+                    accountList[i].money -= money;
+                    alert("Rút tiền thành công ");
+                    flag = true;
+                } else {
+                    alert("Số dư không hợp lệ");
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        if (flag === false) {
+            alert("STK không tồn tại");
+        }
+        displayAccountList(accountList);
+    }
+
+</script>
+</body>
+
+</html>

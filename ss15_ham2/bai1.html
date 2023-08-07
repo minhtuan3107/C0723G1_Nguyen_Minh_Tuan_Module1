@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = +prompt("Nhập số lượng phần tử");
+    let arr = [];
+    for (let i = 0; i < str; i++) {
+        arr[i] = +prompt("nhập phần tử thứ " + [i]);
+    }
+    console.log(arr)
+    function checkNumber(arr) {
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[0] < arr[i]) {
+                arr[0] = arr[i]
+                return "OK";
+            }
+        }
+        return "NO";
+    }
+    console.log(checkNumber(arr))
+</script>
+</body>
+</html>

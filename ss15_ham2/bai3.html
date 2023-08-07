@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = prompt("Nhập n")
+    let arr = n.split('')
+    document.write(findMax(arr))
+
+    function findMax(arr) {
+        if (arr.length >= 4) {
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] <= arr[i + 1]) {
+                    arr.splice(i, 1);
+                    break;
+                }
+            }
+        } else {
+            return -1
+        }
+        return arr.join('');
+    }
+</script>
+</body>
+</html>
