@@ -6,17 +6,26 @@
 </head>
 <body>
 <script>
-    let a = 3;
-    let b = 5;
-    let c = 2;
-    let d = 4;
-    let min = Math.min(a, b, c, d);
-    let max = Math.max(a, b, c, d);
-    let up = [a, b, c, d].sort();
-    document.write("Số nhỏ nhất là " + min);
-    document.write("<br> Số lớn nhất là " + max);
-    document.write("<br>Số từ nhỏ đến lớn là " + up);
-    document.write("<br>Số từ lớn đến nhỏ là " + up.reverse());
+    let str = 4;
+    let arr = [];
+    for (let i = 0; i < str; i++) {
+        arr[i] = +prompt("Nhập số thứ: " + [i + 1]);
+    }
+    let min = arr[0];
+    let max = arr[0];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[0] < arr[i]) {
+            max = arr[i];
+        } else if (arr[0] > arr[i]) {
+            min = arr[i];
+        } else {
+
+        }
+    }
+    document.write("Số lớn nhất là: " + max);
+    document.write("<br> Số bé nhất là: " + min);
+    document.write("<br> Số theo thứ tự tăng dần là: " + arr.sort());
+    document.write("<br> Số theo thứ tự giảm dần là: " + arr.sort().reverse());
 </script>
 </body>
 </html>
