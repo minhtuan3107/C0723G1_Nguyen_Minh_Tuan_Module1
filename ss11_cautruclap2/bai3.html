@@ -6,18 +6,26 @@
 </head>
 <body>
 <script>
-    let number = +prompt("Nhập số để check");
-
-    function checkNumber(number) {
+    let number;
+        do {
+        let count = 0;
+        number = +prompt("Nhập số để check");
+        if (number === 1) {
+            alert("Số bạn nhập không phải là số nguyên tố");
+            continue;
+        }
         for (let i = 2; i * i <= number; i++) {
             if (number % i === 0) {
-                return "Không phải số nguyên tố";
+                count++;
             }
-
-        }return "Là số nguyên tố";
-    }
-
-    alert(checkNumber(number));
+        }
+        if (count > 0) {
+            alert("Số bạn nhập không phải là số nguyên tố");
+        } else if (count === 0) {
+            alert("Là số nguyên tố ");
+            break;
+        }
+    } while (true);
 </script>
 </body>
 </html>
