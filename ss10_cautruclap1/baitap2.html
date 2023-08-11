@@ -9,8 +9,13 @@
     let n;
     do {
         n = +prompt("Nhập một số: ");
-    } while (n > 0 && n > 100);
-    document.write("Số bạn đã nhập là: " + n);
+        if(n > 0 && n < 100){
+            document.write("Số bạn đã nhập là: " + n);
+            break;
+        }else{
+            alert("Vui lòng nhập lại");
+        }
+    } while (true);
 </script>
 </body>
 </html>

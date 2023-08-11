@@ -7,13 +7,17 @@
 <body>
 <script>
     let number = +prompt("Nhập số để check");
-    for (let i = 2; i <= Math.sqrt(number); i++) {
-        if (number % i === 0 || number < 2) {
-            alert("Không phải số nguyên tố");
-        } else {
-            alert("Là số nguyên tố");
-        }
+
+    function checkNumber(number) {
+        for (let i = 2; i * i <= number; i++) {
+            if (number % i === 0) {
+                return "Không phải số nguyên tố";
+            }
+
+        }return "Là số nguyên tố";
     }
+
+    alert(checkNumber(number));
 </script>
 </body>
 </html>

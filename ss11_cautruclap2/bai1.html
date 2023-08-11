@@ -6,12 +6,12 @@
 </head>
 <body>
 <script>
-    let str = prompt("Nhập số phần tử trong mảng");
+    let str = prompt("Có bao nhiêu phần tử trong mảng? ");
     let arr = [];
     let max = [0];
     for (let i = 0; i < str; i++) {
-        arr[i] = +prompt("Nhập mảng thứ " + [i]);
-    }    document.write("Mảng bạn nhập là: " + arr);
+        arr[i] = +prompt("Nhập phần tử thứ " + [i]);
+    }    document.write("Phần tử bạn nhập là: " + arr);
     arr.sort();
     for (let i = 1; i < arr.length; i++) {
         if (max < arr[i]) {
