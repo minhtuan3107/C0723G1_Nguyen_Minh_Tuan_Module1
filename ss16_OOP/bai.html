@@ -14,7 +14,9 @@
 <p>Chọn loại dịch vụ : </p>
 <button onclick="addMoney()" style="height: 50px; width: 100px;">Nạp tiền</button>
 <button onclick="withdrawMoney()" style="height: 50px; width: 100px;">Rút tiền</button>
-
+<button onclick="register()" style="height: 50px; width: 100px;">Tạo tài khoản</button>
+<button onclick="deleteInfo()" style="height: 50px; width: 100px;">Xóa</button>
+<button onclick="changeInfo()" style="height: 50px; width: 100px;">Chỉnh sửa</button>
 
 <script>
     class Account {
@@ -92,8 +94,52 @@
         document.getElementById("table").innerHTML = table;
     }
 
+    displayAccountList(accountList)
+
+    function register() {
+        let newStk = prompt("Nhập STK");
+        let newName = prompt("Nhập tên");
+        let newStudent = new Account(newStk, newName, 0);
+        accountList.push(newStudent);
+        displayAccountList(accountList);
+    }
+    function changeInfo() {
+        let id = prompt("Nhập stk cần sửa");
+        let flag = true;
+        for (let i = 0; i < accountList.length; i++) {
+            if (id === accountList[i].number) {
+                flag = false;
+                accountList[i].number = prompt("Nhập lại stk");
+                accountList[i].name = prompt("Nhập lại tên");
+            }
+        }
+        if (flag) {
+            alert("Stk tồn tại");
+        }
+        displayAccountList(accountList);
+    }
+    function deleteInfo() {
+        let id = prompt("Điền stk cần xóa");
+        let flag = true;
+        for (let i = 0; i < accountList.length; i++) {
+            if (id === accountList[i].number) {
+                flag = false;
+                let he = confirm("Bạn có muốn xóa ID này ? ");
+                if (he === true) {
+                    accountList.splice(i, 1);
+                    break;
+                } else {
+                    alert("Bạn không xóa");
+                }
+            }
+        }
+        if (flag) {
+            alert("ID không tồn tại");
+        }
+        displayAccountList(accountList);
+    }
+
     function addMoney() {
-        debugger
         let id = prompt("STK cần nạp tiền");
         let money = +prompt("Nhập số tiền cần nạp");
         for (let i = 0; i < accountList.length; i++) {
@@ -110,16 +156,15 @@
     }
 
     function withdrawMoney() {
-        debugger
         let id = prompt("Nhập STK cần rút tiền");
         let money;
         let flag = false;
         for (let i = 0; i < accountList.length; i++) {
             if (id === accountList[i].number) {
-                money = +prompt('Nhập số tiền cần rút');
+                money = +prompt('Nhập số tiền cần rút');;
                 alert('Số dư trong tài khoản ' + id + " là: " + accountList[i].money);
                 if (accountList[i].money > 0 && accountList[i].money >= money) {
-                    confirm('Bạn có muốn rút ' + money + ' VND trong tài khoản ' + accountList[i].number + ' không??')
+                    confirm('Bạn có muốn rút ' + money + ' VND trong tài khoản ' + accountList[i].number + ' không??');
                     accountList[i].money -= money;
                     alert("Rút tiền thành công ");
                     flag = true;
@@ -135,8 +180,6 @@
         }
         displayAccountList(accountList);
     }
-
 </script>
 </body>
-
 </html>
