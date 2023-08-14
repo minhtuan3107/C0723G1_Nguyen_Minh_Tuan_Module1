@@ -106,10 +106,10 @@
     }
 
     function changeInfo() {
-        let id = prompt("Nhập stk cần sửa");
+        let stk = prompt("Nhập stk cần sửa");
         let flag = true;
         for (let i = 0; i < accountList.length; i++) {
-            if (id === accountList[i].number) {
+            if (stk === accountList[i].number) {
                 flag = false;
                 accountList[i].number = prompt("Nhập lại stk");
                 accountList[i].name = prompt("Nhập lại tên");
@@ -122,12 +122,12 @@
     }
 
     function deleteInfo() {
-        let id = prompt("Điền stk cần xóa");
+        let stk = prompt("Điền stk cần xóa");
         let flag = true;
         for (let i = 0; i < accountList.length; i++) {
-            if (id === accountList[i].number) {
+            if (stk === accountList[i].number) {
                 flag = false;
-                let he = confirm("Bạn có muốn xóa ID này ? ");
+                let he = confirm("Bạn có muốn xóa stk này ? ");
                 if (he === true) {
                     accountList.splice(i, 1);
                     break;
@@ -137,16 +137,16 @@
             }
         }
         if (flag) {
-            alert("ID không tồn tại");
+            alert("Stk không tồn tại");
         }
         displayAccountList(accountList);
     }
 
     function addMoney() {
-        let id = prompt("STK cần nạp tiền");
+        let stk = prompt("STK cần nạp tiền");
         let money = +prompt("Nhập số tiền cần nạp");
         for (let i = 0; i < accountList.length; i++) {
-            if (id === accountList[i].number) {
+            if (stk === accountList[i].number) {
                 accountList[i].money += money;
                 alert("Nạp tiền thành công");
                 break;
@@ -159,14 +159,13 @@
     }
 
     function withdrawMoney() {
-        let id = prompt("Nhập STK cần rút tiền");
+        let stk = prompt("Nhập STK cần rút tiền");
         let money;
         let flag = false;
         for (let i = 0; i < accountList.length; i++) {
-            if (id === accountList[i].number) {
+            if (stk === accountList[i].number) {
                 money = +prompt("Nhập số tiền cần rút");
-                ;
-                alert("Số dư trong tài khoản " + id + " là: " + accountList[i].money);
+                alert("Số dư trong tài khoản " + stk + " là: " + accountList[i].money);
                 if (accountList[i].money > 0 && accountList[i].money >= money) {
                     confirm("Bạn có muốn rút " + money + " VND trong tài khoản " + accountList[i].number + " không?");
                     accountList[i].money -= money;
@@ -186,14 +185,14 @@
     }
 
     function ck() {
-        let id = prompt("Nhập STK cần chuyển tiền");
-        let id1 = prompt("Nhập STK nhận tiền");
+        let stk = prompt("Nhập STK cần chuyển tiền");
+        let stk1 = prompt("Nhập STK nhận tiền");
         let money;
         let flag = false;
         for (let i = 0; i < accountList.length; i++) {
-            if (id === accountList[i].number) {
-                money = +prompt('Nhập số tiền cần chuyển');
-                alert("Số dư trong tài khoản " + id + " là: " + accountList[i].money);
+            if (stk === accountList[i].number) {
+                money = +prompt("Nhập số tiền cần chuyển");
+                alert("Số dư trong tài khoản " + stk1 + " là: " + accountList[i].money);
                 if (accountList[i].money > 0 && accountList[i].money >= money) {
                     confirm("Bạn có muốn chuyển " + money + " VND trong tài khoản " + accountList[i].number + " không?");
                     accountList[i].money -= money;
@@ -209,7 +208,7 @@
             alert("STK không tồn tại");
         }
         for (let i = 0; i < accountList.length; i++) {
-            if (id1 === accountList[i].number) {
+            if (stk1 === accountList[i].number) {
                 if (accountList[i].money > 0 && accountList[i].money >= money) {
                     accountList[i].money += money;
                     alert("Chuyển tiền thành công ");
