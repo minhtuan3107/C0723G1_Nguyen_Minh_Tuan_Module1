@@ -6,9 +6,9 @@
 </head>
 <body>
 <script>
-    let n = prompt("Nhập n")
-    let arr = n.split('')
-    document.write(findMax(arr))
+    let n = prompt("Nhập n");
+    let arr = n.split('');
+    document.write(findMax(arr));
 
     function findMax(arr) {
         if (arr.length >= 4) {
@@ -19,7 +19,7 @@
                 }
             }
         } else {
-            return -1
+            return -1;
         }
         return arr.join('');
     }
