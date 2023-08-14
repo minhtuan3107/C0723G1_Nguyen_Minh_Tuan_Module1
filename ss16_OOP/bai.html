@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<h1>ABC BANK</h1>
+<h1 style="background-color: chocolate;color: white">MINHTUAN BANK</h1>
 <hr>
 <div id="table"></div>
 <br>
@@ -17,7 +17,7 @@
 <button onclick="register()" style="height: 50px; width: 100px;">Tạo tài khoản</button>
 <button onclick="deleteInfo()" style="height: 50px; width: 100px;">Xóa</button>
 <button onclick="changeInfo()" style="height: 50px; width: 100px;">Chỉnh sửa</button>
-
+<button onclick="ck()" style="height: 50px; width: 100px;">Ck</button>
 <script>
     class Account {
         constructor(number, name, money) {
@@ -67,9 +67,9 @@
         }
     }
 
-    let account1 = new Account('31', 'NGUYEN MINH TUAN', 10000);
-    let account2 = new Account('07', 'Nguyen Minh Tuan', 20000);
-    let account3 = new Account('05', 'Nguyen Minh A ', 9999);
+    let account1 = new Account("31", "NGUYEN MINH TUAN", 10000);
+    let account2 = new Account("07", "Nguyen Minh Tuan", 20000);
+    let account3 = new Account("05", "Nguyen Minh A ", 9999);
     let accountList = [];
     accountList.push(account1, account2, account3);
     displayAccountList(accountList);
@@ -97,12 +97,14 @@
     displayAccountList(accountList)
 
     function register() {
-        let newStk = prompt("Nhập STK");
+        let newStk = Math.floor(Math.random()*100);
         let newName = prompt("Nhập tên");
         let newStudent = new Account(newStk, newName, 0);
+        alert("STK mới của bạn là: " + newStk + " Tên: " + newName + " Số tiền mặc định là: " + "0")
         accountList.push(newStudent);
         displayAccountList(accountList);
     }
+
     function changeInfo() {
         let id = prompt("Nhập stk cần sửa");
         let flag = true;
@@ -118,6 +120,7 @@
         }
         displayAccountList(accountList);
     }
+
     function deleteInfo() {
         let id = prompt("Điền stk cần xóa");
         let flag = true;
@@ -161,10 +164,11 @@
         let flag = false;
         for (let i = 0; i < accountList.length; i++) {
             if (id === accountList[i].number) {
-                money = +prompt('Nhập số tiền cần rút');;
-                alert('Số dư trong tài khoản ' + id + " là: " + accountList[i].money);
+                money = +prompt("Nhập số tiền cần rút");
+                ;
+                alert("Số dư trong tài khoản " + id + " là: " + accountList[i].money);
                 if (accountList[i].money > 0 && accountList[i].money >= money) {
-                    confirm('Bạn có muốn rút ' + money + ' VND trong tài khoản ' + accountList[i].number + ' không??');
+                    confirm("Bạn có muốn rút " + money + " VND trong tài khoản " + accountList[i].number + " không?");
                     accountList[i].money -= money;
                     alert("Rút tiền thành công ");
                     flag = true;
@@ -177,6 +181,41 @@
         }
         if (flag === false) {
             alert("STK không tồn tại");
+        }
+        displayAccountList(accountList);
+    }
+
+    function ck() {
+        let id = prompt("Nhập STK cần chuyển tiền");
+        let id1 = prompt("Nhập STK nhận tiền");
+        let money;
+        let flag = false;
+        for (let i = 0; i < accountList.length; i++) {
+            if (id === accountList[i].number) {
+                money = +prompt('Nhập số tiền cần chuyển');
+                alert("Số dư trong tài khoản " + id + " là: " + accountList[i].money);
+                if (accountList[i].money > 0 && accountList[i].money >= money) {
+                    confirm("Bạn có muốn chuyển " + money + " VND trong tài khoản " + accountList[i].number + " không?");
+                    accountList[i].money -= money;
+                    flag = true;
+                } else {
+                    alert("Số dư không hợp lệ");
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        if (flag === false) {
+            alert("STK không tồn tại");
+        }
+        for (let i = 0; i < accountList.length; i++) {
+            if (id1 === accountList[i].number) {
+                if (accountList[i].money > 0 && accountList[i].money >= money) {
+                    accountList[i].money += money;
+                    alert("Chuyển tiền thành công ");
+                    flag = true;
+                }
+            }
         }
         displayAccountList(accountList);
     }
