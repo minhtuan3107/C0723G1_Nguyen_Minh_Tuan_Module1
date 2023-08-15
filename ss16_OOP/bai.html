@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<h1 style="background-color: chocolate;color: white">MINHTUAN BANK</h1>
+<h1 style="background-color: chocolate;color: white">ABC BANK</h1>
 <hr>
 <div id="table"></div>
 <br>
@@ -17,7 +17,7 @@
 <button onclick="register()" style="height: 50px; width: 100px;">Tạo tài khoản</button>
 <button onclick="deleteInfo()" style="height: 50px; width: 100px;">Xóa</button>
 <button onclick="changeInfo()" style="height: 50px; width: 100px;">Chỉnh sửa</button>
-<button onclick="ck()" style="height: 50px; width: 100px;">Ck</button>
+<button onclick="transferMoney()" style="height: 50px; width: 100px;">Chuyển tiền</button>
 <script>
     class Account {
         constructor(number, name, money) {
@@ -77,14 +77,12 @@
     function displayAccountList(accountList) {
         let table = "<table  border='1px'  style='border-collapse: collapse'>" +
             "<tr>" +
-            "<th>STT</th>" +
-            "<th>STK</th>" +
-            "<th>Name</th>" +
-            "<th>Money</th>" +
+            "<th>Số tài khoản</th>" +
+            "<th>Tên</th>" +
+            "<th>Số dư</th>" +
             "</tr>"
         for (let i = 0; i < accountList.length; i++) {
             table += "<tr>" +
-                "<td>" + (i + 1) + "</td>" +
                 "<td>" + accountList[i].number + "</td>" +
                 "<td>" + accountList[i].name + "</td>" +
                 "<td>" + accountList[i].money + "</td>" +
@@ -99,8 +97,9 @@
     function register() {
         let newStk = Math.floor(Math.random() * 100);
         let newName = prompt("Nhập tên");
-        let newStudent = new Account(newStk, newName, 0);
-        alert("STK mới của bạn là: " + newStk + " Tên: " + newName + " Số tiền mặc định là: " + "0")
+        let newMoney = +prompt("Nhập số tiền: ")
+        let newStudent = new Account(newStk, newName, newMoney);
+        alert("STK mới của bạn là: " + newStk + " Tên: " + newName + " Số tiền là: " + newMoney)
         accountList.push(newStudent);
         displayAccountList(accountList);
     }
@@ -184,7 +183,7 @@
         displayAccountList(accountList);
     }
 
-    function ck() {
+    function transferMoney() {
         let stk = prompt("Nhập STK cần chuyển tiền");
         let stk1 = prompt("Nhập STK nhận tiền");
         let money;
@@ -192,20 +191,18 @@
         for (let i = 0; i < accountList.length; i++) {
             if (stk === accountList[i].number) {
                 money = +prompt("Nhập số tiền cần chuyển");
-                alert("Số dư trong tài khoản " + stk1 + " là: " + accountList[i].money);
+                alert("Số dư trong tài khoản " + stk + " là: " + accountList[i].money);
                 if (accountList[i].money > 0 && accountList[i].money >= money) {
                     confirm("Bạn có muốn chuyển " + money + " VND trong tài khoản " + accountList[i].number + " không?");
                     accountList[i].money -= money;
                     flag = true;
                 } else {
                     alert("Số dư không hợp lệ");
+                    accountList[i].money += money
                     flag = true;
                     break;
                 }
             }
-        }
-        if (flag === false) {
-            alert("STK không tồn tại");
         }
         for (let i = 0; i < accountList.length; i++) {
             if (stk1 === accountList[i].number) {
@@ -214,6 +211,9 @@
                     alert("Chuyển tiền thành công ");
                     flag = true;
                 }
+            }
+            if (flag === false) {
+                alert("STK không tồn tại");
             }
         }
         displayAccountList(accountList);
