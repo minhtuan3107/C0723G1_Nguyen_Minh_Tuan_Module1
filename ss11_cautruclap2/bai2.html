@@ -6,16 +6,23 @@
 </head>
 <body>
 <script>
-  let dad = +prompt("Nhập tuổi cha");
-  let son = +prompt("Nhập tuổi con");
-  let year = 0;
-  if(dad - son < 25){
-    alert("Tuổi cha phải hơn con 25");
-  }while (dad > son * 2  ){
-    dad ++;
-    son ++;
-    year ++;
-  }alert("Sau " + year + " năm Tuổi cha gấp đôi tuổi con");
+    let son
+    let dad
+    let year = 0
+    do {
+            son = +prompt("Nhập vào tuổi con");
+            dad = +prompt("Nhập vào tuổi cha");
+        if (son > (dad - 25)&&isNaN(son)) {
+            alert("Tuổi cha phải lớn hơn tuổi con ít nhất là 25 tuổi");
+        } else
+            break;
+    } while (son > (dad - 25))
+        while (dad > son * 2) {
+            dad++;
+            son++;
+            year++;
+        }
+    alert("Sau " + year + " năm Tuổi cha gấp đôi tuổi con");
 </script>
 </body>
 </html>
