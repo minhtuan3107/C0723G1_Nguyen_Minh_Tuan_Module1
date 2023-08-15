@@ -13,12 +13,13 @@
 
         if (a + b < c || a + c < b || b + c < a || a > 0 || b > 0 || c > 0) {
             return "không phải tam giác";
-        } else if ((a * 2 ) + (b * 2) === ( c * 2 )) {
+        } else if ((a * 2) + (b * 2) === (c * 2)) {
             return "là 3 cạnh của tam giác vuông";
-        }else {
+        } else {
             return "Là 3 cạnh của tam giác";
         }
     }
+
     alert(checkTriangle());
 </script>
 </body>

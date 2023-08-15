@@ -97,7 +97,7 @@
     displayAccountList(accountList)
 
     function register() {
-        let newStk = Math.floor(Math.random()*100);
+        let newStk = Math.floor(Math.random() * 100);
         let newName = prompt("Nhập tên");
         let newStudent = new Account(newStk, newName, 0);
         alert("STK mới của bạn là: " + newStk + " Tên: " + newName + " Số tiền mặc định là: " + "0")

@@ -12,6 +12,7 @@
         arr[i] = +prompt("nhập phần tử thứ " + [i]);
     }
     console.log(arr);
+
     function checkNumber(arr) {
         for (let i = 1; i < arr.length; i++) {
             if (arr[i] - arr[i - 1] !== 1) {
@@ -20,6 +21,7 @@
         }
         return "OK";
     }
+
     document.write("Mảng sau khi thêm phần tử: " + arr);
     document.write("<br> Status: " + checkNumber(arr));
 </script>
