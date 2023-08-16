@@ -6,19 +6,19 @@
 </head>
 <body>
 <script>
-    let str = +prompt("Nhập số lượng phần tử");
+    let str = +prompt("Nhập độ dài của mảng");
     let arr = [];
+    let number;
     for (let i = 0; i < str; i++) {
-        arr[i] = +prompt("Nhập phần tử thứ " + [i]);
+        do {
+            number = +prompt("Nhập phần tử thứ " + i);
+            if (arr.includes(number)) {
+                alert("Phần tử đã có trong mảng. Vui lòng nhập lại.");
+            }
+        } while (arr.includes(number) === true);
+        arr.push(number);
     }
-    for (let i = 1; i < arr.length; i++) {
-        if (arr[0] === arr[i]) {
-            alert("Số đã có trong mảng vui lòng nhập lại");
-            break;
-        } else if (arr[0] !== arr[i]) {
-            alert("OK");
-        }
-    }
+    document.write("Các phần tử trong mảng là: " + arr);
 </script>
 </body>
 </html>
