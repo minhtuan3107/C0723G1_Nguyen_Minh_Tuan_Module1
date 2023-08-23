@@ -6,7 +6,15 @@
 </head>
 <body>
 <script>
-    let height = +prompt("Điền chiều cao: ");
+    let height
+    do{
+        height = +prompt("Nhập chiều cao: ");
+        if(isNaN(height) === false){
+            break;
+        }else{
+            alert("Vui lòng nhập lại");
+        }
+    }while (true)
     for(let i = 1; i <= height; i++){
         for(let k = height; k > i;k--){
             document.write("&nbsp&nbsp");
