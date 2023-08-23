@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let words;
+    let arr;
+    do {
+        words = prompt("Nhập kí tự cần tìm: ");
+        arr = words.split('')
+        if (isNaN(words) === true && arr.length === 1) {
+            break;
+        } else {
+            alert("Vui lòng nhập lại");
+        }
+    } while (true);
+    switch (words) {
+        case 'o':
+        case 'O':
+        case 'u':
+        case 'U':
+        case 'i':
+        case 'I':
+        case 'a':
+        case 'A':
+        case 'e':
+        case 'E':
+            alert("Kí tự bạn vừa nhập là nguyên âm");
+            break;
+        default:
+            alert("Kí tự bạn nhập là phụ âm");
+    }
+
+</script>
+</body>
+</html>

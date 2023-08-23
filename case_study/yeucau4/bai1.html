@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let string = prompt("Nhập chuỗi cần sử lý:");
+    let string1 = normalizeString(string).join("");
+    let stringLonger = string1.split(" ");
+    function normalizeString(string) {
+        string = string.trim();
+        string = string.toLowerCase();
+        string = string.split('');
+        for (let i = 1; i < string.length; i++) {
+            if (string[i] === ' ') {
+                string[0] = string[0].toUpperCase();
+                string[i + 1] = string[i + 1].toUpperCase();
+            }
+        }
+        return string;
+    }
+
+    console.log("Chuỗi ban đầu là: " + string);
+    console.log("<br> Chuỗi sau khi sử lý là: " + string1);
+    for (let i = 0; i < stringLonger.length; i++) {
+        if (stringLonger[i].length > stringLonger[0].length) {
+            stringLonger[0] = stringLonger[i]
+        }
+    }
+    console.log("Từ dài nhất la " + stringLonger[0]);
+</script>
+</body>
+</html>

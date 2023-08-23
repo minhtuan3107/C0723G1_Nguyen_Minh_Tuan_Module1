@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = +prompt("Nhập n");
+    let m = +prompt("Nhập m");
+    let array = [];
+    for (let i = 0; i < n; i++) {
+        array[i] = [];
+        for (let j = 0; j < m; j++) {
+            array[i][j] = +prompt("Nhập phần tử" + "[" + [i] + "]" + "[" + [j] + "]");
+        }
+    }
+    let min = array[0][0];
+    let max = array[0][0];
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            if (max < array[i][j]) {
+                max = array[i][j];
+            } else if (min > array[i][j]) {
+                min = array[i][j];
+            }
+        }
+    }
+    console.log("Số min " + min);
+    console.log("Số max " + max);
+</script>
+</body>
+</html>

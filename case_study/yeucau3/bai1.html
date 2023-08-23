@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n
+    let arr = []
+    let newarr = []
+    let x
+    do {
+        n = +prompt("Nhập số lượng phần tử:  ");
+        for (let i = 0; i < n; i++) {
+            x = +prompt("Nhập phần tử thứ: " + (i + 1));
+            if (isNaN(x) === false && x % 1 === 0) {
+                arr.push(x);
+            } else {
+                alert("Vui lòng nhập lại");
+                i--;
+            }
+        }
+        if (isNaN(n) === false && n % 1 === 0) {
+            break;
+        } else {
+            alert("Vui lòng nhập lại");
+        }
+    } while (true);
+    for (let i = 0; i < arr.length; i++) {
+        newarr[i] = 0;
+        for (let j = 0; j < i + 1; j++) {
+            newarr[i] += arr[j];
+        }
+    }
+    console.log(newarr);
+</script>
+</body>
+</html>

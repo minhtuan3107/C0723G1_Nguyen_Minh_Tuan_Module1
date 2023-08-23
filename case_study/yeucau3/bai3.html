@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let numerators = [5, 2, 5];
+    let denominators = [6, 3, 4];
+    let min = numerators[0] / denominators[0]
+    let index = 0;
+    for (let i = 1; i < numerators.length; i++) {
+        if (min < numerators[i] / denominators[i]) {
+            min = numerators[i] / denominators [i];
+            index = i;
+        } else {
+            index = 0;
+        }
+    }
+    document.write("Số lớn nhất là: " + numerators[index] + " / " + denominators[index] + " Có chỉ số là: " + index);
+
+</script>
+</body>
+</html>
