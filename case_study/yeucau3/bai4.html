@@ -6,14 +6,14 @@
 </head>
 <body>
 <script>
-    let drinks = [1, 2, 3, 4, 5, 6];
-    let price = [5000, 10000, 8000, 5000, 8000, 5000];
-    let name = ["cafe", "Cam vắt", "Nước cà rốt", "Nước ép cà chua", "Nước lọc", "Nước dừa"];
+    let drinks = [0,1, 2, 3, 4, 5, 6];
+    let price = [0,5000, 10000, 8000, 5000, 8000, 5000];
+    let name = ["","cafe", "Cam vắt", "Nước ép cà rốt", "Nước ép cà chua", "Nước lọc", "Nước dừa"]
     let total = 0;
     do {
         let sum = 0;
         let order = +prompt("Menu \n 1: Cafe \n 2:Cam vắt \n 3: Nước ép cà rốt \n 4: Nước ép cà chua \n 5: Nước lọc \n 6: Nước dừa \n 7: Cancel ");
-        for (let i = 0; i < drinks.length; i++) {
+        for (let i = 1; i < drinks.length; i++) {
             if (order === i) {
                 let amount = +prompt(name[i] + " có giá tiền " + price[i] + " với số lượng:");
                 sum = price[i] * amount;
@@ -21,11 +21,12 @@
         }
         total = total + sum;
         if (order === 7) {
+            alert("Cảm ơn bạn đã order");
             alert("Tổng tiền là " + total);
             break;
         }
-        if (order <= 8 && order >= 0) {
-            alert("Bạn đã nhập sai vui lòng nhập lại");
+        if (order < 1 || order > 7) {
+            alert("Bạn nhập sai vui lòng nhập lại");
         }
     }
     while (true);
