@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
 <script>
-    let s = prompt("Nhập xâu kí tự: ");
-    let set = s.split("");
-    console.log("Dãy ban đầu là ")
-    console.log(s)
-    let set2 = new Set(set);
-    console.log("Dãy sau khi làm mới là")
-    console.log(set2);
+    debugger
+    let text = "cabca";
+    let arr = text.split('');
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                arr.splice(j, 1);
+                i--;
+            }
+        }
+    }
+    document.write("Dãy kí tự : " + text + "</br>");
+    document.write(arr + "</br>");
+    document.write(arr.length + " kí tự khác nhau ");
+    // let s = prompt("Nhập xâu kí tự: ");
+    // let set = s.split("");
+    // console.log("Dãy ban đầu là ")
+    // console.log(s)
+    // let set2 = new Set(set);
+    // console.log("Dãy sau khi làm mới là")
+    // console.log(set2);
+
 </script>
 </body>
+
 </html>
