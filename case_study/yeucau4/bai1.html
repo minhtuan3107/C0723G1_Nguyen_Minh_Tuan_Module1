@@ -6,30 +6,49 @@
 </head>
 <body>
 <script>
-    let string = prompt("Nhập chuỗi cần sử lý:");
-    let string1 = normalizeString(string).join("");
-    let stringLonger = string1.split(" ");
-    function normalizeString(string) {
-        string = string.trim();
-        string = string.toLowerCase();
-        string = string.split('');
-        for (let i = 1; i < string.length; i++) {
-            if (string[i] === ' ') {
-                string[0] = string[0].toUpperCase();
-                string[i + 1] = string[i + 1].toUpperCase();
+    let str = prompt("Nhập");
+    let str1 = str.toLowerCase();
+
+    function firstText() {
+        let str2 = str1.trim();
+        let arr = str2.split("");
+        arr[0] = arr[0].toUpperCase();
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i - 1] === " ") {
+                arr[i] = arr[i].toUpperCase();
             }
         }
-        return string;
-    }
+        for (let i = 0; i < arr.length; i++) {
+            if ((arr[i - 1] === " ") && (arr[i] === " ")) {
+                arr.splice(i - 1, 1);
+                i--;
+            }
+        }
 
-    console.log("Chuỗi ban đầu là: " + string);
-    console.log("<br> Chuỗi sau khi sử lý là: " + string1);
-    for (let i = 0; i < stringLonger.length; i++) {
-        if (stringLonger[i].length > stringLonger[0].length) {
-            stringLonger[0] = stringLonger[i]
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i]);
         }
     }
-    console.log("Từ dài nhất la " + stringLonger[0]);
+
+    function lengthText() {
+        let arr2 = str1.split(" ");
+        let maxLength = 0;
+        for (let i = 0; i < arr2.length; i++) {
+            if (arr2[i].length > maxLength) {
+                maxLength = arr2[i].length;
+            }
+        }
+        for (let i = 0; i < arr2.length; i++) {
+            if (arr2[i].length === maxLength) {
+                document.write("Từ dài nhất là: " + arr2[i]);
+            }
+        }
+
+    }
+
+    firstText();
+    lengthText();
+
 </script>
 </body>
 </html>
