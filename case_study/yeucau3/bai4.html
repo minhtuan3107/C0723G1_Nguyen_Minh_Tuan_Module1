@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+
 <script>
-    let drinks = [0,1, 2, 3, 4, 5, 6];
-    let price = [0,5000, 10000, 8000, 5000, 8000, 5000];
-    let name = ["","cafe", "Cam vắt", "Nước ép cà rốt", "Nước ép cà chua", "Nước lọc", "Nước dừa"]
+    let drinks = [0, 1, 2, 3, 4, 5, 6];
+    let price = [0, 5000, 10000, 8000, 5000, 8000, 5000];
+    let name = ["", "cafe", "Cam vắt", "Nước ép cà rốt", "Nước ép cà chua", "Nước lọc", "Nước dừa"]
     let total = 0;
     do {
         let sum = 0;
@@ -21,7 +22,6 @@
         }
         total = total + sum;
         if (order === 7) {
-            alert("Cảm ơn bạn đã order");
             alert("Tổng tiền là " + total);
             break;
         }
