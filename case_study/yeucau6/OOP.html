@@ -39,7 +39,7 @@
         for (let i = 0; i < array.length; i++) {
             table +=
                 "<tr>" +
-                "<td>" + array[i].id + "</td>" +
+                "<td>" + "HV-" + array[i].id + "</td>" +
                 "<td>" + array[i].name + "</td>" +
                 "<td>" + array[i].className + "</td>" +
                 "<td>" + array[i].email + "</td>" +
@@ -57,11 +57,17 @@
     function addNewStudent() {
         let newId;
         do {
-            newId = +prompt("Nhập ID có 4 số");
-            if (newId >= 1000 && newId <= 9999 && isNaN(newId) === false) {
+            let count = 0;
+            newId = +prompt("Nhập ID có 4 số ví dụ: 1234");
+            for (let i = 0; i < studentList.length; i++) {
+                if (studentList[i].id !== newId) {
+                    count++;
+                }
+            }
+            if (count === studentList.length && newId >= 1000 && newId <= 9999) {
                 break;
             } else {
-                alert("Vui lòng nhập lại ID");
+                alert("Nhập lại ID ví dụ : 1234");
             }
         } while (true);
         let newName
@@ -70,20 +76,20 @@
             if (newName.length <= 50) {
                 break;
             } else {
-                alert("Vui lòng nhập lại tên");
+                alert("Vui lòng nhập lại tên dưới 50 kí tự");
             }
         } while (true);
         let newClassName = prompt("Nhập tên lớp");
         let newEmail = prompt("Nhập email");
         let newBirthday;
         do {
-            let temp = prompt("Nhập Birthday cách nhau bằng dấu dd/mm/yy");
+            let temp = prompt("Nhập Birthday theo dạng dd/mm/yy");
             newBirthday = temp.split("/");
-            if (newBirthday[0] <= 31 && newBirthday[1] <= 12 && newBirthday[2] <= 2023) {
+            if (newBirthday[0] <= 31 && newBirthday[1] <= 12 && newBirthday[2] <= 2023 && newBirthday[2] >= 1890) {
                 newBirthday = temp;
                 break;
             } else {
-                alert("Vui lòng nhập Birthday");
+                alert("Vui lòng nhập Birthday theo dạng dd/mm/yy");
             }
         } while (true);
         let newModule;
@@ -92,7 +98,7 @@
             if (newModule <= 6 && isNaN(newModule) === false) {
                 break;
             } else {
-                alert("Vui lòng nhập module");
+                alert("Vui lòng nhập module từ 1 -> 6");
             }
         } while (true);
         let newStudent = new student(newId, newName, newClassName, newEmail, newBirthday, newModule);
@@ -107,11 +113,18 @@
             if (editId === studentList[i].id) {
                 check = false
                 do {
-                    studentList[i].id = +prompt("Nhập ID mới 4 số");
-                    if (studentList[i].id >= 1000 && studentList[i].id <= 9999 && isNaN(studentList[i].id) === false) {
+                    editId = +prompt("Nhập ID mới 4 số ví dụ : 1234");
+                    let count = 0;
+                    for (let j = 0; j < studentList.length; j++) {
+                        if (studentList[j].id !== editId) {
+                            count++;
+                        }
+                    }
+                    if (count === studentList.length && editId >= 1000 && editId <= 9999 && isNaN(editId)) {
+                        studentList[i].id = editId;
                         break;
                     } else {
-                        alert("Vui lòng nhập lại");
+                        alert("Nhập lại ví dụ : 1234");
                     }
                 } while (true);
                 do {
@@ -119,21 +132,21 @@
                     if (studentList[i].name.length <= 50) {
                         break;
                     } else {
-                        alert("Vui lòng nhập lại tên");
+                        alert("Vui lòng nhập lại tên dưới 50 kí tự");
                     }
                 } while (true);
                 studentList[i].className = prompt("Nhập tên lớp mới");
                 studentList[i].email = prompt("Nhập email mới");
                 do {
                     debugger
-                    let temp = prompt("Nhập Birthday cách nhau bằng dấu dd/mm/yy");
+                    let temp = prompt("Nhập Birthday bằng định dạng dd/mm/yy");
                     temp = temp.split("/");
-                    if (temp[0] <= 31 && temp[1] <= 12 && temp[2] <= 2023) {
+                    if (temp[0] <= 31 && temp[1] <= 12 && temp[2] <= 2023 && temp[2]>= 1980 ){
                         temp = temp.join('/');
                         studentList[i].birthDay = temp;
                         break;
                     } else {
-                        alert("Vui lòng nhập lại");
+                        alert("Vui lòng nhập lại Birthday bằng định dạng dd/mm/yy");
                     }
                 } while (true);
                 do {
@@ -141,7 +154,7 @@
                     if (studentList[i].module <= 6 && isNaN(studentList[i].module) === false) {
                         break;
                     } else {
-                        alert("Vui lòng nhập lại");
+                        alert("Vui lòng nhập lại từ 1 -> 6");
                     }
                 } while (true);
             }
