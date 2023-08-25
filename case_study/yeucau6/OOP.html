@@ -64,7 +64,7 @@
                     count++;
                 }
             }
-            if (count === studentList.length && newId >= 1000 && newId <= 9999) {
+            if (count === studentList.length && newId >= 1000 && newId <= 9999 && isNaN(newId) === false) {
                 break;
             } else {
                 alert("Nhập lại ID ví dụ : 1234");
@@ -73,7 +73,7 @@
         let newName
         do {
             newName = prompt("Nhập tên dưới 50 kí tự");
-            if (newName.length <= 50) {
+            if (newName.length <= 50 && isNaN(newName) === true) {
                 break;
             } else {
                 alert("Vui lòng nhập lại tên dưới 50 kí tự");
@@ -85,7 +85,7 @@
         do {
             let temp = prompt("Nhập Birthday theo dạng dd/mm/yy");
             newBirthday = temp.split("/");
-            if (newBirthday[0] <= 31 && newBirthday[1] <= 12 && newBirthday[2] <= 2023 && newBirthday[2] >= 1890) {
+            if (newBirthday[0] <= 31 && newBirthday[1] <= 12 && newBirthday[2] <= 2007 && newBirthday[2] >= 1890 && isNaN(newBirthday[0]) === false && isNaN(newBirthday[1]) === false && isNaN(newBirthday[2]) === false) {
                 newBirthday = temp;
                 break;
             } else {
@@ -95,7 +95,7 @@
         let newModule;
         do {
             newModule = +prompt("Nhập module 1 -> 6");
-            if (newModule <= 6 && isNaN(newModule) === false) {
+            if (newModule >= 1 && newModule <= 6 && isNaN(newModule) === false) {
                 break;
             } else {
                 alert("Vui lòng nhập module từ 1 -> 6");
@@ -120,7 +120,7 @@
                             count++;
                         }
                     }
-                    if (count === studentList.length && editId >= 1000 && editId <= 9999) {
+                    if (count === studentList.length && editId >= 1000 && editId <= 9999 && isNaN(editId) === false) {
                         studentList[i].id = editId;
                         break;
                     } else {
@@ -129,7 +129,7 @@
                 } while (true);
                 do {
                     studentList[i].name = prompt("Nhập tên mới dưới 50 kí tự");
-                    if (studentList[i].name.length <= 50) {
+                    if (studentList[i].name.length <= 50 && isNaN(studentList[i].name) === true) {
                         break;
                     } else {
                         alert("Vui lòng nhập lại tên dưới 50 kí tự");
@@ -151,7 +151,7 @@
                 } while (true);
                 do {
                     studentList[i].module = +prompt("Nhập module mới 1 - 6");
-                    if (studentList[i].module <= 6 && isNaN(studentList[i].module) === false) {
+                    if (studentList[i].module >= 1 && studentList[i].module <= 6 && isNaN(studentList[i].module) === false) {
                         break;
                     } else {
                         alert("Vui lòng nhập lại từ 1 -> 6");
@@ -185,7 +185,6 @@
         }
         setStudentTable(studentList);
     }
-
 </script>
 </body>
 </html>
