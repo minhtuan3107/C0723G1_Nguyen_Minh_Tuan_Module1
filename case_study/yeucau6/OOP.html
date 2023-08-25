@@ -44,7 +44,7 @@
                 "<td>" + array[i].className + "</td>" +
                 "<td>" + array[i].email + "</td>" +
                 "<td>" + array[i].birthDay + "</td>" +
-                "<td>" + array[i].module + "</td>" +
+                "<td>" + "Module:" + array[i].module + "</td>" +
 
                 "</tr>"
         }
@@ -115,16 +115,16 @@
                 do {
                     editId = +prompt("Nhập ID mới 4 số ví dụ : 1234");
                     let count = 0;
-                    for (let j = 0; j < studentList.length; j++) {
-                        if (studentList[j].id !== editId) {
+                    for (let i = 0; i < studentList.length; i++) {
+                        if (studentList[i].id !== editId) {
                             count++;
                         }
                     }
-                    if (count === studentList.length && editId >= 1000 && editId <= 9999 && isNaN(editId)) {
+                    if (count === studentList.length && editId >= 1000 && editId <= 9999) {
                         studentList[i].id = editId;
                         break;
                     } else {
-                        alert("Nhập lại ví dụ : 1234");
+                        alert("Nhập lại ID ví dụ : 1234");
                     }
                 } while (true);
                 do {
@@ -141,7 +141,7 @@
                     debugger
                     let temp = prompt("Nhập Birthday bằng định dạng dd/mm/yy");
                     temp = temp.split("/");
-                    if (temp[0] <= 31 && temp[1] <= 12 && temp[2] <= 2023 && temp[2]>= 1980 ){
+                    if (temp[0] <= 31 && temp[1] <= 12 && temp[2] <= 2023 && temp[2] >= 1980) {
                         temp = temp.join('/');
                         studentList[i].birthDay = temp;
                         break;
@@ -158,9 +158,9 @@
                     }
                 } while (true);
             }
-            if (check) {
-                alert("ID không tồn tại");
-            }
+        }
+        if (check) {
+            alert("ID không tồn tại");
         }
         setStudentTable(studentList);
     }
